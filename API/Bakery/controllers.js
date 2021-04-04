@@ -12,11 +12,12 @@ exports.fetchBakery = async (bakeryId, next) => {
   }
 };
 
+//add new cookie
 //bakery list
 exports.bakeryList = async (req, res, next) => {
   try {
     const bakeries = await Bakery.findAll({
-      attributes: ["id", "name"],
+      attributes: ["id", "name", "image"],
       include: {
         model: Cookie,
         as: "cookies",
